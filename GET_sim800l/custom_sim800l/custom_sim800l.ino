@@ -72,7 +72,7 @@ void setup() {
     }
   
   
-   while (!gprs.join("airtelgprs.com")) { //change "cmnet" to your own APN
+   while (!gprs.join("airtelgprs.com")) { 
       Serial.println("Error joining GPRS network");
       //wdt_reset();
       delay(1000);
@@ -86,7 +86,7 @@ void setup() {
   Serial.print("IP Address is ");
   Serial.println(gprs.getIPAddress());
 
-  Serial.println("Init success, connecting to exploreembedded.com ...");
+  Serial.println("Init success, connecting to Heroku server ...");
 
 
   //  Vector rawAccel = mpu.readRawAccel();
@@ -482,7 +482,7 @@ Serial.println("Box is open");
 
 
   if (0 == gprs.connectTCP("gps-test-server.herokuapp.com", 80)) {
-    Serial.println("Successfully connected to exploreembedded.com!");//AT+CIPSTART="TCP","secret-shelf-98881.herokuapp.com",80
+    Serial.println("Successfully connected to Server!");//AT+CIPSTART="TCP","secret-shelf-98881.herokuapp.com",80
   } else {
     Serial.println("connect error");
     while (1);
